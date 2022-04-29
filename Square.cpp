@@ -7,6 +7,8 @@
 #include <vector>
 #include <string>
 
+using namespace std;
+
 class Square {
     public:
         //Setters
@@ -36,6 +38,10 @@ class Square {
         bool getUsed() {
             return used;
         }
+        friend ostream& operator<<(ostream& os, const Square &s) {
+	    os << s.col << s.row;
+	    return os;
+	}
 
     private:
         char col;
