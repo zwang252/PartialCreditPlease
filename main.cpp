@@ -45,7 +45,10 @@ int main(int argc, char *argv[]) {
         cout << lancelot.getLocation() << endl;
     }
 
-    cout << "Possible moves: " << lancelot.possibleMoves(lancelot.getLocation()) << endl;
+    vector<Square> temp = lancelot.possibleMoves(lancelot.getLocation());
+    for (int i = 0; i < temp.size(); i++) {
+        cout << temp.at(i) << endl;
+    }
 
     return 0;
 }

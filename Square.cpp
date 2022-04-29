@@ -11,6 +11,10 @@ using namespace std;
 
 class Square {
     public:
+        Square(){
+            
+        }
+
         //Setters
         void setCol(int x) {
             col = x;
@@ -40,8 +44,12 @@ class Square {
         }
         friend ostream& operator<<(ostream& os, const Square &s) {
 	        os << (char) (s.col + 65) << s.row + 1;
-	    return os;
-	}
+	        return os;      
+	    }
+        Square (int c, int r) {
+            col = c;
+            row = r;
+        }
 
     private:
         int col;
