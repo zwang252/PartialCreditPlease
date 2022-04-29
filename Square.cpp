@@ -12,7 +12,7 @@ using namespace std;
 class Square {
     public:
         //Setters
-        void setCol(char x) {
+        void setCol(int x) {
             col = x;
         }
         void setRow(int y) {
@@ -26,7 +26,7 @@ class Square {
         }
 
         //Getters
-        char getCol() {
+        int getCol() {
             return col;
         }
         int getRow() {
@@ -39,12 +39,12 @@ class Square {
             return used;
         }
         friend ostream& operator<<(ostream& os, const Square &s) {
-	    os << s.col << s.row;
+	        os << (char) (s.col + 65) << s.row;
 	    return os;
 	}
 
     private:
-        char col;
+        int col;
         int row;
         int remaining;
         bool used = false;

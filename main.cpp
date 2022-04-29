@@ -1,19 +1,19 @@
-#include "Square.cpp"
+#include "Knight.cpp"
 
 int main(int argc, char *argv[]) {
 
     // code to setup chessboard
     Square chessboard[8][8];
-    for (int row = 0; row < 8; row++) {
-        for (int column = 0; column < 8; column++) {
-            chessboard[row][column].setRow(row + 1);
-	    chessboard[row][column].setCol((char) 65 + column);
-	}
+    for (int col = 0; col < 8; col++) {
+        for (int row = 0; row < 8; row++) {
+            chessboard[col][row].setCol(col);
+	    chessboard[col][row].setRow(row + 1);
+	    }
     }
 
     for (int row = 8; row > 0; row--) {
         for (int column = 0; column < 8; column++) {
-	    cout << chessboard[row - 1][column] << "  ";
+	    cout << chessboard[column][row - 1] << "  ";
 	}
 	cout << endl << endl;
     }
@@ -32,11 +32,20 @@ int main(int argc, char *argv[]) {
     string tile; //temp name for storing starting square
     int algChoice;
 
+    Knight lancelot; 
+
     while (getline(infile, line)) {
         istringstream iss(line);
         iss >> tile >> algChoice;
     
-        //tile[0] 
+        int var1 = (int) (tile[0] - 65);
+        int var2 = (int) (tile[1] - 48);
+        lancelot.setLocation(chessboard[var1][var2 - 1]);
+        
+        cout << lancelot.getLocation() << endl;
     }
+
+    cout << "Possible moves: " << lancelot.possibleMoves(lancelot.getLocation()) << endl;
+
     return 0;
 }

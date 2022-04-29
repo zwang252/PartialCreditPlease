@@ -11,6 +11,43 @@ class Knight {
         void setLocation(Square Loc) {
             loc = Loc;
         }
+        int possibleMoves(Square Loc) {
+            vector<Square> val;
+            int possibleMoves;
+
+            //Possible moves
+            //Right moves
+            if ((Loc.getCol() + 2) < 8) {
+                //Up & down moves
+                if ((Loc.getRow() + 1) < 8) possibleMoves++;
+                if ((Loc.getRow() - 1) < 8) possibleMoves++;
+            }
+            //Left moves
+            if ((Loc.getCol() - 2) < 8) {
+                //Up & down moves
+                if ((Loc.getRow() + 1) < 8) possibleMoves++;
+                if ((Loc.getRow() - 1) < 8) possibleMoves++;
+            }
+            //Up moves
+            if ((Loc.getRow() + 2) < 8) {
+                //Right & left moves
+                if ((Loc.getCol() + 1) < 8) possibleMoves++;
+                if ((Loc.getCol() - 1) < 8) possibleMoves++;
+            }
+            //Down moves
+            if ((Loc.getRow() - 2) < 8) {
+                //Right & left moves
+                if ((Loc.getCol() + 1) < 8) possibleMoves++;
+                if ((Loc.getCol() - 1) < 8) possibleMoves++;
+            }
+
+            return possibleMoves;
+        }
+
+
+        Square getLocation() {
+            return loc;
+        }
 
     private:
         Square loc;
