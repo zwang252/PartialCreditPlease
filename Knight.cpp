@@ -13,7 +13,7 @@ class Knight {
         }
         int possibleMoves(Square Loc) {
             vector<Square> val;
-            int possibleMoves;
+            int possibleMoves = 0;
 
             //Possible moves
             //Right moves
