@@ -22,7 +22,7 @@ class Square {
             remaining = z;
         }
         void setUsed(bool xyz) {
-            used = xyz;
+	  used = xyz;
         }
 
         //Getters
