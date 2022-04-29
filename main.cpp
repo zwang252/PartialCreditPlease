@@ -7,7 +7,7 @@ int main(int argc, char *argv[]) {
     for (int col = 0; col < 8; col++) {
         for (int row = 0; row < 8; row++) {
             chessboard[col][row].setCol(col);
-	    chessboard[col][row].setRow(row + 1);
+	    chessboard[col][row].setRow(row);
 	    }
     }
 

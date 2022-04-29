@@ -3,8 +3,14 @@ all:	PartialCreditPlease
 PartialCreditPlease:	main.o
 	g++ main.o -o pcpkt
 
-main.o:	main.cpp
+main.o:	main.cpp Square.o Knight.o
 	g++ -c main.cpp
+
+Square.o:	Square.cpp
+	g++ -c Square.cpp
+
+Knight.o:	Knight.cpp
+	g++ -c Knight.cpp
 
 clean:
 	rm *.o pcpkt

@@ -22,7 +22,7 @@ class Square {
             remaining = z;
         }
         void setUsed(bool xyz) {
-	  used = xyz;
+	        used = xyz;
         }
 
         //Getters
@@ -39,7 +39,7 @@ class Square {
             return used;
         }
         friend ostream& operator<<(ostream& os, const Square &s) {
-	        os << (char) (s.col + 65) << s.row;
+	        os << (char) (s.col + 65) << s.row + 1;
 	    return os;
 	}
 
