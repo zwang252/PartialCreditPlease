@@ -19,14 +19,24 @@ int main(int argc, char *argv[]) {
     }
   
     // code to read inputfile and select starting square and algorithm
-    ifstream infile(argv[1]);
-    ofstream outfile(argv[2]);
-    
+    string inputFile;
+    string outputFile;
     string line;
-    
-    
+
+    inputFile = string(argv[1]);
+    outputFile = (argv[2]);
+
+    ifstream infile(inputFile);
+    ofstream outfile(outputFile);
+
+    string tile; //temp name for storing starting square
+    int algChoice;
+
     while (getline(infile, line)) {
-      
+        istringstream iss(line);
+        iss >> tile >> algChoice;
+    
+        //tile[0] 
     }
     return 0;
 }
