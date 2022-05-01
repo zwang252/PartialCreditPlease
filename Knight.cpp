@@ -5,15 +5,38 @@ class Knight {
         void moveBackT() {
 
         }
-        void moveWarns() {
 
+
+        vector<Square> moveWarns(Knight Mordred) {
+            int moveCount = 64; //hardcoded because 8x8 board
+            vector<Square> sequence;
+
+            for (int i = 0; i < moveCount; i++) {
+                sequence.push_back(Mordred.getLocation());
+                Mordred.getLocation().setUsed(true);
+                Mordred.setLocation(nextMove(Mordred.possibleMoves(Mordred.getLocation())));
+            }
+
+            return sequence;
         }
-        void setLocation(Square Loc) {
-            loc = Loc;
+
+        Square nextMove(vector<Square> validMoves) {
+            Square nMove;
+            int degree = 8;
+
+            //Next move is the with the smallest possible moves from that position
+            for (int i = 0; i < validMoves.size(); i++) {
+                if((possibleMoves(validMoves.at(i))).size() < degree) {
+                    degree = possibleMoves(validMoves.at(i)).size();
+                    nMove = validMoves.at(i);
+                }
+            }
+            return nMove;
         }
+
         vector<Square> possibleMoves(Square Loc) {
             vector<Square> moveList;
-            int possibleMoves = 0;
+            vector<Square> validList; 
 
         //Possible moves
             //Right moves
@@ -64,9 +87,20 @@ class Knight {
                     moveList.push_back(newMove);
                 }
             }
-            return moveList;
+
+            //Checks if possible moves have been used or not yet
+            for (int i = 0; i < moveList.size(); i++) {
+                if (!(moveList.at(i).getUsed())) {
+                    validList.push_back(moveList.at(i));
+                }
+            }
+
+            return validList;
         }
 
+        void setLocation(Square Loc) {
+            loc = Loc;
+        }
         Square getLocation() {
             return loc;
         }

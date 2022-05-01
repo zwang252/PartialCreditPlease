@@ -7,15 +7,15 @@ int main(int argc, char *argv[]) {
     for (int col = 0; col < 8; col++) {
         for (int row = 0; row < 8; row++) {
             chessboard[col][row].setCol(col);
-	    chessboard[col][row].setRow(row);
+	        chessboard[col][row].setRow(row);
 	    }
     }
 
     for (int row = 8; row > 0; row--) {
         for (int column = 0; column < 8; column++) {
-	    cout << chessboard[column][row - 1] << "  ";
-	}
-	cout << endl << endl;
+	        cout << chessboard[column][row - 1] << "  ";
+	    }
+	    cout << endl << endl;
     }
   
     // code to read inputfile and select starting square and algorithm
@@ -45,10 +45,12 @@ int main(int argc, char *argv[]) {
         cout << lancelot.getLocation() << endl;
     }
 
-    vector<Square> temp = lancelot.possibleMoves(lancelot.getLocation());
+
+    vector<Square> temp = lancelot.moveWarns(lancelot);
     for (int i = 0; i < temp.size(); i++) {
         cout << temp.at(i) << endl;
     }
+
 
     return 0;
 }
