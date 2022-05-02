@@ -1,73 +1,62 @@
-#include <iostream>
-#include <fstream>
-#include <sstream>
+#include "Square.h"
 
-#include <math.h>
-#include <algorithm>
-#include <vector>
-#include <string>
+Square::Square(){
 
-using namespace std;
+}
 
-class Square {
-    public:
-        Square(){ 
-        }
+Square::Square(const Square &s) {
+    col = s.col;
+    row = s.row;
+    remaining = s.remaining;
+    used = s.used;
+}
+        
+void Square::setCol(int x) {
+    col = x;
+}
+        
+void Square::setRow(int y) {
+    row = y;
+}
+        
+void Square::setRemaining(int z){
+    remaining = z;
+}
 
-        Square(const Square &s) {
-            col = s.col;
-            row = s.row;
-            remaining = s.remaining;
-            used = s.used;
-        }
+void Square::setUsed() {
+	used = true;
+}
 
-        //Setters
-        void setCol(int x) {
-            col = x;
-        }
-        void setRow(int y) {
-            row = y;
-        }
-        void setRemaining(int z){
-            remaining = z;
-        }
-        void setUsed() {
-	        used = true;
-        }
+//Getters
+int Square::getCol() {
+    return col;
+}
 
-        //Getters
-        int getCol() {
-            return col;
-        }
-        int getRow() {
-            return row;
-        }
-        int getRemaining() {
-            return remaining;
-        }
-        bool getUsed() {
-            return used;
-        }
-        friend ostream& operator<<(ostream& os, const Square &s) {
-	        os << (char) (s.col + 65) << s.row + 1;
-	        return os;      
-	    }
+int Square::getRow() {
+    return row;
+}
 
-        void operator=(const Square &s) {
-            col = s.col;
-            row = s.row;
-            remaining = s.remaining;
-            used = s.used;
-        }
+int Square::getRemaining() {
+    return remaining;
+}
 
-        Square (int c, int r) {
-            col = c;
-            row = r;
-        }
+bool Square::getUsed() {
+    return used;
+}
 
-    private:
-        int col;
-        int row;
-        int remaining;
-        bool used;
-};
+ostream& operator<<(ostream& os, const Square& s) {
+    os << (char) (s.col + 65) << s.row + 1;
+    return os;      
+}
+
+void Square::operator=(const Square &s) {
+    col = s.col;
+    row = s.row;
+    remaining = s.remaining;
+    used = s.used;
+}
+
+Square::Square (int c, int r) {
+    col = c;
+    row = r;
+}

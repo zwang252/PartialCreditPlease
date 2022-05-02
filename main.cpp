@@ -29,7 +29,7 @@ int main(int argc, char *argv[]) {
     
         int var1 = (int) (tile[0] - 65);
         int var2 = (int) (tile[1] - 48);
-        lancelot.setLocation(chessboard.get(var1,var2 - 1));
+        lancelot.setLocation(*chessboard.get(var1,var2 - 1));
         
         //cout << lancelot.getLocation() << endl;
     }
