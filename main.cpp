@@ -42,13 +42,13 @@ int main(int argc, char *argv[]) {
         int var2 = (int) (tile[1] - 48);
         lancelot.setLocation(chessboard[var1][var2 - 1]);
         
-        cout << lancelot.getLocation() << endl;
+        //cout << lancelot.getLocation() << endl;
     }
 
 
     vector<Square> temp = lancelot.moveWarns(lancelot);
     for (int i = 0; i < temp.size(); i++) {
-        cout << temp.at(i) << endl;
+        //cout << temp.at(i) << endl;
     }
 
 

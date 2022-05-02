@@ -11,8 +11,14 @@ using namespace std;
 
 class Square {
     public:
-        Square(){
-            
+        Square(){ 
+        }
+
+        Square(const Square &s) {
+            col = s.col;
+            row = s.row;
+            remaining = s.remaining;
+            used = s.used;
         }
 
         //Setters

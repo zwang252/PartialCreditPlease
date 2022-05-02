@@ -6,17 +6,14 @@ class Knight {
 
         }
 
-
         vector<Square> moveWarns(Knight Mordred) {
             int moveCount = 64; //hardcoded because 8x8 board
             vector<Square> sequence;
-
             for (int i = 0; i < moveCount; i++) {
                 sequence.push_back(Mordred.getLocation());
                 Mordred.getLocation().setUsed(true);
-                Mordred.setLocation(nextMove(Mordred.possibleMoves(Mordred.getLocation())));
+                Mordred.setLocation(Mordred.nextMove(Mordred.possibleMoves(Mordred.getLocation())));
             }
-
             return sequence;
         }
 
@@ -27,8 +24,11 @@ class Knight {
             //Next move is the with the smallest possible moves from that position
             for (int i = 0; i < validMoves.size(); i++) {
                 if((possibleMoves(validMoves.at(i))).size() < degree) {
-                    degree = possibleMoves(validMoves.at(i)).size();
-                    nMove = validMoves.at(i);
+                    cout << validMoves.at(i).getUsed() << endl;
+                    if (!(validMoves.at(i).getUsed())) {
+                        degree = possibleMoves(validMoves.at(i)).size();
+                        nMove = validMoves.at(i);
+                    }
                 }
             }
             return nMove;
