@@ -4,15 +4,15 @@ void Knight::moveBackT() {
 
 }
 
-vector<Square> Knight::moveWarns(Knight Mordred) {
+vector<Square> Knight::moveWarns() {
     int moveCount = 4; //hardcoded because 8x8 board
     vector<Square> sequence;
     for (int i = 0; i < moveCount; i++) {
-        board.get(Mordred.getLocation().getCol(), Mordred.getLocation().getRow())->setUsed();
-        sequence.push_back(Mordred.getLocation());
-        Mordred.setLocation(*board.get(Mordred.nextMove(Mordred.possibleMoves(Mordred.getLocation())).getCol(),
-                                    Mordred.nextMove(Mordred.possibleMoves(Mordred.getLocation())).getRow()));
-        cout << Mordred.getLocation() << endl;
+        board.get(loc.getCol(), loc.getRow())->setUsed();
+        sequence.push_back(loc);
+        this->setLocation(*board.get(this->nextMove(this->possibleMoves(loc)).getCol(),
+                                    this->nextMove(this->possibleMoves(loc)).getRow()));
+        cout << loc << endl;
     }
     return sequence;
 }
@@ -25,9 +25,9 @@ Square Knight::nextMove(vector<Square> validMoves) {
     for (int i = 0; i < validMoves.size(); i++) {
         if((possibleMoves(validMoves.at(i))).size() < degree) {
             //cout << validMoves.at(i) << endl;
-            if (!(validMoves.at(i).getUsed())) {
+            if (!(board.get(validMoves.at(i).getCol(),validMoves.at(i).getRow())->getUsed())) {
                 degree = possibleMoves(validMoves.at(i)).size();
-                nMove = validMoves.at(i);
+                nMove = *board.get(validMoves.at(i).getCol(), validMoves.at(i).getRow());
                 //cout << nMove << endl;
             }
         }

@@ -35,7 +35,7 @@ int main(int argc, char *argv[]) {
     }
 
 
-    vector<Square> temp = lancelot.moveWarns(lancelot);
+    vector<Square> temp = lancelot.moveWarns();
     //for (int i = 0; i < temp.size(); i++) {
         //cout << temp.at(i) << endl;
         //cout << true << endl;

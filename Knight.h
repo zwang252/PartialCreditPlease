@@ -6,7 +6,7 @@
 class Knight{
     public:
         void moveBackT();
-        vector<Square> moveWarns(Knight);
+        vector<Square> moveWarns();
         Square nextMove(vector<Square>);
         vector<Square> possibleMoves(Square);
         void setLocation(Square);
