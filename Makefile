@@ -1,6 +1,6 @@
 all:	PartialCreditPlease
 
-PartialCreditPlease:	main.o
+PartialCreditPlease:	main.o Square.o Knight.o Chessboard.o
 	g++ main.o Square.o Knight.o Chessboard.o -o pcpkt
 
 main.o:	main.cpp Square.h Knight.h Chessboard.h

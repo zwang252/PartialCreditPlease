@@ -1,4 +1,4 @@
-#include "Knight.cpp"
+#include "Knight.h"
 
 int main(int argc, char *argv[]) {
 
@@ -31,7 +31,7 @@ int main(int argc, char *argv[]) {
         int var2 = (int) (tile[1] - 48);
         lancelot.setLocation(*chessboard.get(var1,var2 - 1));
         
-        //cout << lancelot.getLocation() << endl;
+        cout << lancelot.getLocation() << endl;
     }
 
 
