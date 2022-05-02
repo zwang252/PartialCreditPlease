@@ -7,14 +7,13 @@ class Knight {
         }
 
         vector<Square> moveWarns(Knight Mordred) {
-            int moveCount = 4; //hardcoded because 8x8 board
+            int moveCount = 2; //hardcoded because 8x8 board
             vector<Square> sequence;
             for (int i = 0; i < moveCount; i++) {
                 Mordred.getLocation().setUsed();
                 sequence.push_back(Mordred.getLocation());
-                cout << sequence.at(i) << endl;
                 Mordred.setLocation(Mordred.nextMove(Mordred.possibleMoves(Mordred.getLocation())));
-                cout << sequence.at(0).getUsed() << endl;
+                //cout << Mordred.getLocation() << endl;
             }
             return sequence;
         }
@@ -26,6 +25,7 @@ class Knight {
             //Next move is the with the smallest possible moves from that position
             for (int i = 0; i < validMoves.size(); i++) {
                 if((possibleMoves(validMoves.at(i))).size() < degree) {
+                    //cout << validMoves.at(i) << endl;
                     if (!(validMoves.at(i).getUsed())) {
                         degree = possibleMoves(validMoves.at(i)).size();
                         nMove = validMoves.at(i);
@@ -33,13 +33,13 @@ class Knight {
                     }
                 }
             }
-            cout << nMove.getUsed() << endl;
+            //cout << nMove.getUsed() << endl;
             return nMove;
         }
 
         vector<Square> possibleMoves(Square Loc) {
             vector<Square> moveList;
-            //vector<Square> validList; 
+            vector<Square> validList; 
 
         //Possible moves
             //Right moves
@@ -99,7 +99,7 @@ class Knight {
                 }
             }
 
-            /*
+            
             //Checks if possible moves have been used or not yet
             for (int i = 0; i < moveList.size(); i++) {
                 if (!(moveList.at(i).getUsed())) {
@@ -107,9 +107,15 @@ class Knight {
                 }
             }
 
+            cout << "List of available squares at location " << Loc << endl;
+            for (int j = 0; j < validList.size(); j++) {
+                cout << validList.at(j) << "  ";
+            }
+            cout << endl;
+
             return validList;
-            */
-            return moveList;
+            
+            //return moveList;
         }
 
         void setLocation(Square Loc) {
