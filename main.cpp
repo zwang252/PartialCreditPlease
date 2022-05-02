@@ -4,7 +4,7 @@ int main(int argc, char *argv[]) {
 
     // code to setup chessboard
     Chessboard chessboard;
-    chessboard.display();
+    //chessboard.display();
   
     // code to read inputfile and select starting square and algorithm
     string inputFile;
@@ -31,16 +31,12 @@ int main(int argc, char *argv[]) {
         int var2 = (int) (tile[1] - 48);
         lancelot.setLocation(*chessboard.get(var1,var2 - 1));
         
-        cout << lancelot.getLocation() << endl;
+        //cout << lancelot.getLocation() << endl;
     }
 
 
     vector<Square> temp = lancelot.moveWarns();
-    //for (int i = 0; i < temp.size(); i++) {
-        //cout << temp.at(i) << endl;
-        //cout << true << endl;
-    //}
-
+    chessboard.displayResults(temp);
 
     return 0;
 };

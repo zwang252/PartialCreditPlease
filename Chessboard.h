@@ -8,6 +8,7 @@ class Chessboard{
         Chessboard();
         void display();
         Square* get(int, int);
+        void displayResults(vector<Square>);
     private:
         Square board[8][8];
 };

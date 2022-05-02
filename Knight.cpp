@@ -128,6 +128,6 @@ Square Knight::getLocation() {
     return loc;
 }
 
-void Knight::setBoard(Chessboard cboard) {
-    board = cboard;
+void Knight::setBoard(Chessboard cBoard) {
+    board = cBoard;
 }
