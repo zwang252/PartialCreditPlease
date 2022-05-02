@@ -1,4 +1,4 @@
-#include "Chessboard.cpp"
+#include "Knight.cpp"
 
 int main(int argc, char *argv[]) {
 
@@ -20,7 +20,8 @@ int main(int argc, char *argv[]) {
     string tile; //temp name for storing starting square
     int algChoice;
 
-    Knight lancelot; 
+    Knight lancelot;
+    lancelot.setBoard(chessboard);
 
     while (getline(infile, line)) {
         istringstream iss(line);

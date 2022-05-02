@@ -1,4 +1,4 @@
-#include "Knight.cpp"
+#include "Square.cpp"
 
 class Chessboard {
     public:

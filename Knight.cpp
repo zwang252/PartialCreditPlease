@@ -1,4 +1,4 @@
-#include "Square.cpp"
+#include "Chessboard.cpp"
 
 class Knight {
     public:
@@ -45,48 +45,56 @@ class Knight {
             if ((Loc.getCol() + 2) < 8) {
                 //Up & down moves
                 if ((Loc.getRow() + 1) < 8) {
-                    Square newMove((Loc.getCol() + 2) , (Loc.getRow() + 1));
-                    moveList.push_back(newMove);
+                    moveList.push_back(board.get(Loc.getCol() + 2, Loc.getRow() + 1));
+                    //Square newMove((Loc.getCol() + 2) , (Loc.getRow() + 1));
+                    //moveList.push_back(newMove);
                 } 
                 if ((Loc.getRow() - 1) > - 1) {
-                    Square newMove((Loc.getCol() + 2) , (Loc.getRow() - 1));
-                    moveList.push_back(newMove);
+                    moveList.push_back(board.get(Loc.getCol() + 2, Loc.getRow() - 1));
+                    //Square newMove((Loc.getCol() + 2) , (Loc.getRow() - 1));
+                    //moveList.push_back(newMove);
                 }
             }
             //Left moves
             if ((Loc.getCol() - 2) > - 1) {
                 //Up & down moves
                 if ((Loc.getRow() + 1) < 8) {
-                    Square newMove((Loc.getCol() - 2) , (Loc.getRow() + 1));
-                    moveList.push_back(newMove);
+                    moveList.push_back(board.get(Loc.getCol() - 2, Loc.getRow() + 1));
+                    //Square newMove((Loc.getCol() - 2) , (Loc.getRow() + 1));
+                    //moveList.push_back(newMove);
                 }
                 if ((Loc.getRow() - 1) > - 1) {
-                    Square newMove((Loc.getCol() - 2) , (Loc.getRow() - 1));
-                    moveList.push_back(newMove);
+                    moveList.push_back(board.get(Loc.getCol() - 2, Loc.getRow() - 1));
+                    //Square newMove((Loc.getCol() - 2) , (Loc.getRow() - 1));
+                    //moveList.push_back(newMove);
                 }
             }
             //Up moves
             if ((Loc.getRow() + 2) < 8) {
                 //Right & left moves
                 if ((Loc.getCol() + 1) < 8) {
-                    Square newMove((Loc.getCol() + 1) , (Loc.getRow() + 2));
-                    moveList.push_back(newMove);
+                    moveList.push_back(board.get(Loc.getCol() + 1, Loc.getRow() + 2));
+                    //Square newMove((Loc.getCol() + 1) , (Loc.getRow() + 2));
+                    //moveList.push_back(newMove);
                 }
                 if ((Loc.getCol() - 1) > - 1) {
-                    Square newMove((Loc.getCol() - 1) , (Loc.getRow() + 2));
-                    moveList.push_back(newMove);                
+                    moveList.push_back(board.get(Loc.getCol() - 1, Loc.getRow() + 2));
+                    //Square newMove((Loc.getCol() - 1) , (Loc.getRow() + 2));
+                    //moveList.push_back(newMove);                
                 }
             }
             //Down moves
             if ((Loc.getRow() - 2) > - 1) {
                 //Right & left moves
                 if ((Loc.getCol() + 1) < 8) {
-                    Square newMove((Loc.getCol() + 1) , (Loc.getRow() - 2));
-                    moveList.push_back(newMove);
+                    moveList.push_back(board.get(Loc.getCol() + 1, Loc.getRow() - 2));
+                    //Square newMove((Loc.getCol() + 1) , (Loc.getRow() - 2));
+                    //moveList.push_back(newMove);
                 }
                 if ((Loc.getCol() - 1) > - 1) {
-                    Square newMove((Loc.getCol() - 1) , (Loc.getRow() - 2));
-                    moveList.push_back(newMove);
+                    moveList.push_back(board.get(Loc.getCol() - 1, Loc.getRow() - 2));
+                    //Square newMove((Loc.getCol() - 1) , (Loc.getRow() - 2));
+                    //moveList.push_back(newMove);
                 }
             }
 
@@ -104,10 +112,16 @@ class Knight {
         void setLocation(Square Loc) {
             loc = Loc;
         }
+
         Square getLocation() {
             return loc;
         }
 
+        void setBoard(Chessboard cboard) {
+            board = cboard;
+        }
+
     private:
         Square loc;
+        Chessboard board;
 };
