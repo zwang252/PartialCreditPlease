@@ -1,4 +1,4 @@
-#include "Square.cpp"
+#include "Knight.cpp"
 
 class Chessboard {
     public:
@@ -6,7 +6,7 @@ class Chessboard {
             for (int col = 0; col < 8; col++) {
                 for (int row = 0; row < 8; row++) {
                     board[col][row].setCol(col);
-	                cboard[col][row].setRow(row);
+	                board[col][row].setRow(row);
 	            }
             }
         }
@@ -19,6 +19,10 @@ class Chessboard {
             }
         }
 
+        Square get(int row, int col) {
+            return board[row][col];
+        }
+
     private:
         Square board[8][8];
-}
+};

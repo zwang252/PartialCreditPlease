@@ -1,22 +1,10 @@
-#include "Knight.cpp"
+#include "Chessboard.cpp"
 
 int main(int argc, char *argv[]) {
 
     // code to setup chessboard
-    Square chessboard[8][8];
-    for (int col = 0; col < 8; col++) {
-        for (int row = 0; row < 8; row++) {
-            chessboard[col][row].setCol(col);
-	        chessboard[col][row].setRow(row);
-	    }
-    }
-
-    for (int row = 8; row > 0; row--) {
-        for (int column = 0; column < 8; column++) {
-	        cout << chessboard[column][row - 1] << "  ";
-	    }
-	    cout << endl << endl;
-    }
+    Chessboard chessboard;
+    chessboard.display();
   
     // code to read inputfile and select starting square and algorithm
     string inputFile;
@@ -40,7 +28,7 @@ int main(int argc, char *argv[]) {
     
         int var1 = (int) (tile[0] - 65);
         int var2 = (int) (tile[1] - 48);
-        lancelot.setLocation(chessboard[var1][var2 - 1]);
+        lancelot.setLocation(chessboard.get(var1,var2 - 1));
         
         //cout << lancelot.getLocation() << endl;
     }
@@ -54,4 +42,4 @@ int main(int argc, char *argv[]) {
 
 
     return 0;
-}
+};
