@@ -5,7 +5,7 @@ void Knight::moveBackT() {
 }
 
 vector<Square> Knight::moveWarns() {
-    int moveCount = 4; //hardcoded because 8x8 board
+    int moveCount = 64; //hardcoded because 8x8 board
     vector<Square> sequence;
     for (int i = 0; i < moveCount; i++) {
         board.get(loc.getCol(), loc.getRow())->setUsed();
