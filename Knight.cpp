@@ -33,12 +33,13 @@ class Knight {
                     }
                 }
             }
+            cout << nMove.getUsed() << endl;
             return nMove;
         }
 
         vector<Square> possibleMoves(Square Loc) {
             vector<Square> moveList;
-            vector<Square> validList; 
+            //vector<Square> validList; 
 
         //Possible moves
             //Right moves
@@ -98,7 +99,7 @@ class Knight {
                 }
             }
 
-    
+            /*
             //Checks if possible moves have been used or not yet
             for (int i = 0; i < moveList.size(); i++) {
                 if (!(moveList.at(i).getUsed())) {
@@ -107,6 +108,8 @@ class Knight {
             }
 
             return validList;
+            */
+            return moveList;
         }
 
         void setLocation(Square Loc) {

@@ -52,6 +52,14 @@ class Square {
 	        os << (char) (s.col + 65) << s.row + 1;
 	        return os;      
 	    }
+
+        void operator=(const Square &s) {
+            col = s.col;
+            row = s.row;
+            remaining = s.remaining;
+            used = s.used;
+        }
+
         Square (int c, int r) {
             col = c;
             row = r;
