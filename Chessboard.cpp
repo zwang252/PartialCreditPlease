@@ -19,8 +19,8 @@ class Chessboard {
             }
         }
 
-        Square get(int row, int col) {
-            return board[row][col];
+        Square get(int col, int row) {
+            return board[col][row];
         }
 
     private:
