@@ -11,7 +11,7 @@ vector<Square> Knight::moveWarns(Knight Mordred) {
         board.get(Mordred.getLocation().getCol(), Mordred.getLocation().getRow())->setUsed();
         sequence.push_back(Mordred.getLocation());
         Mordred.setLocation(*board.get(Mordred.nextMove(Mordred.possibleMoves(Mordred.getLocation())).getCol(),
-                                      Mordred.nextMove(Mordred.possibleMoves(Mordred.getLocation())).getRow()));
+                                    Mordred.nextMove(Mordred.possibleMoves(Mordred.getLocation())).getRow()));
         cout << Mordred.getLocation() << endl;
     }
     return sequence;
