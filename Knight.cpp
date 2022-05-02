@@ -12,6 +12,7 @@ class Knight {
             for (int i = 0; i < moveCount; i++) {
                 Mordred.getLocation().setUsed();
                 sequence.push_back(Mordred.getLocation());
+                cout << sequence.at(i) << endl;
                 Mordred.setLocation(Mordred.nextMove(Mordred.possibleMoves(Mordred.getLocation())));
                 cout << sequence.at(0).getUsed() << endl;
             }
