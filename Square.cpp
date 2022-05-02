@@ -31,8 +31,8 @@ class Square {
         void setRemaining(int z){
             remaining = z;
         }
-        void setUsed(bool xyz) {
-	        used = xyz;
+        void setUsed() {
+	        used = true;
         }
 
         //Getters
@@ -61,5 +61,5 @@ class Square {
         int col;
         int row;
         int remaining;
-        bool used = false;
+        bool used;
 };
