@@ -20,7 +20,7 @@ class Square {
         void setCol(int);
         void setRow(int);
         void setRemaining(int);
-        void setUsed();
+        void setUsed(bool);
         int getCol();
         int getRow();
         int getRemaining();

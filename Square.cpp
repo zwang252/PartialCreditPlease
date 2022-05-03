@@ -23,8 +23,8 @@ void Square::setRemaining(int z){
     remaining = z;
 }
 
-void Square::setUsed() {
-	used = true;
+void Square::setUsed(bool xyz) {
+	used = xyz;
 }
 
 //Getters

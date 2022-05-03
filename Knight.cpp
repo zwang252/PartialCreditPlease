@@ -1,14 +1,25 @@
 #include "Knight.h"
 
-void Knight::moveBackT() {
-
+vector<Square> Knight::moveBackT(vector<Square> sequence) {
+    if (sequence.size() == 64) {
+        return sequence;
+    }
+    board.get(loc.getCol(), loc.getRow())->setUsed(true);
+    sequence.push_back(loc);
+    if (this->possibleMoves(loc).size() == 0) {
+        loc.setUsed(false);
+        
+    }
+    this->setLocation(*board.get(this->nextMove(this->possibleMoves(loc)).getCol(),
+                                this->nextMove(this->possibleMoves(loc)).getRow()));
+    return this->moveBackT(sequence);
 }
 
 vector<Square> Knight::moveWarns() {
     int moveCount = 64; //hardcoded because 8x8 board
     vector<Square> sequence;
     for (int i = 0; i < moveCount; i++) {
-        board.get(loc.getCol(), loc.getRow())->setUsed();
+        board.get(loc.getCol(), loc.getRow())->setUsed(true);
         sequence.push_back(loc);
         this->setLocation(*board.get(this->nextMove(this->possibleMoves(loc)).getCol(),
                                     this->nextMove(this->possibleMoves(loc)).getRow()));
