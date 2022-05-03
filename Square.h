@@ -31,7 +31,7 @@ class Square {
         int col;
         int row;
         int remaining;
-        bool used;
+        bool used = false;
 };
 
 #endif

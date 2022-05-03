@@ -35,11 +35,11 @@ Square Knight::nextMove(vector<Square> validMoves) {
     
     //Next move is the with the smallest possible moves from that position
     for (int i = 0; i < validMoves.size(); i++) {
-        if((possibleMoves(validMoves.at(i))).size() < degree) {
-            if (!(board.get(validMoves.at(i).getCol(),validMoves.at(i).getRow())->getUsed())) {
-                degree = possibleMoves(validMoves.at(i)).size();
-                nMove = *board.get(validMoves.at(i).getCol(), validMoves.at(i).getRow());
-            }
+        if((possibleMoves(validMoves.at(i))).size() <= degree) {
+            //if (!(board.get(validMoves.at(i).getCol(),validMoves.at(i).getRow())->getUsed())) {
+            degree = possibleMoves(validMoves.at(i)).size();
+            nMove = *board.get(validMoves.at(i).getCol(), validMoves.at(i).getRow());
+            //}
         }
     }
     return nMove;
@@ -62,7 +62,7 @@ vector<Square> Knight::possibleMoves(Square Loc) {
     }
     
     //Left moves
-    if ((Loc.getCol() - 2) > - 1) {
+    if ((Loc.getCol() - 2) > -1) {
         //Up & down moves
         if ((Loc.getRow() + 1) < 8) {
             moveList.push_back(*board.get(Loc.getCol() - 2, Loc.getRow() + 1));
@@ -84,7 +84,7 @@ vector<Square> Knight::possibleMoves(Square Loc) {
     }
     
     //Down moves
-    if ((Loc.getRow() - 2) > - 1) {
+    if ((Loc.getRow() - 2) > -1) {
         //Right & left moves
         if ((Loc.getCol() + 1) < 8) {
             moveList.push_back(*board.get(Loc.getCol() + 1, Loc.getRow() - 2));
@@ -101,6 +101,8 @@ vector<Square> Knight::possibleMoves(Square Loc) {
         }
     }
     
+    cout << board.get(6,5)->getUsed() << endl;
+
     return validList;
 }
 
