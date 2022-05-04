@@ -1,18 +1,48 @@
 #include "Knight.h"
 
 vector<Square> Knight::moveBackT(vector<Square> sequence) {
+    cout << "Printing sequence: ";
+    for (int i = 0; i < sequence.size(); i++) {
+        cout << sequence.at(i) << " ";
+    }
+    cout << endl;
+    board.get(loc.getCol(), loc.getRow())->setUsed(true);
+    sequence.push_back(loc);
     if (sequence.size() == 64) {
         return sequence;
     }
-    board.get(loc.getCol(), loc.getRow())->setUsed(true);
-    sequence.push_back(loc);
-    if (this->possibleMoves(loc).size() == 0) {
-        loc.setUsed(false);
-        
+    else {
+        vector<Square> moveList = this->possibleMoves(loc);
+        if (moveList.size() == 0) {
+            board.get(loc.getCol(), loc.getRow())->setTried(true);
+            board.get(loc.getCol(), loc.getRow())->setUsed(false);
+            sequence.pop_back();
+            this->setLocation(sequence.at(sequence.size() - 1));
+            return this->moveBackT(sequence);
+        }
+        for (int i = 0; i < moveList.size(); i++) {
+            if (!(moveList.at(i).getTried())) {
+                break;
+            }
+            if (i = moveList.size() - 1) {
+                for (int f = 0; f < moveList.size(); f++) {
+                    board.get(moveList.at(f).getCol(), moveList.at(f).getRow())->setTried(false);
+                    board.get(loc.getCol(), loc.getRow())->setTried(true);
+                    sequence.pop_back();
+                    this->setLocation(sequence.at(sequence.size() - 1));
+                    return this->moveBackT(sequence);
+                }
+            }
+        }
+
+        for (int i = 0; i < moveList.size(); i++) {
+            if (!(moveList.at(i).getTried())) {
+                this->setLocation(*board.get(moveList.at(i).getCol(),
+                                            moveList.at(i).getRow()));
+                return this->moveBackT(sequence);
+            }
+        }
     }
-    this->setLocation(*board.get(this->nextMove(this->possibleMoves(loc)).getCol(),
-                                 this->nextMove(this->possibleMoves(loc)).getRow()));
-    return this->moveBackT(sequence);
 }
 
 vector<Square> Knight::moveWarns() {
@@ -100,8 +130,6 @@ vector<Square> Knight::possibleMoves(Square Loc) {
             validList.push_back(moveList.at(i));
         }
     }
-    
-    cout << board.get(6,5)->getUsed() << endl;
 
     return validList;
 }

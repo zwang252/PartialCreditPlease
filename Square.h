@@ -19,18 +19,18 @@ class Square {
         Square(const Square&);
         void setCol(int);
         void setRow(int);
-        void setRemaining(int);
+        void setTried(bool);
         void setUsed(bool);
         int getCol();
         int getRow();
-        int getRemaining();
+        bool getTried();
         bool getUsed();
         void operator=(const Square&);
         friend ostream& operator<<(ostream&, const Square&);
     private:
         int col;
         int row;
-        int remaining;
+        bool tried = false;
         bool used = false;
 };
 

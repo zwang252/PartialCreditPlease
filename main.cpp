@@ -33,17 +33,15 @@ int main(int argc, char *argv[]) {
         
         //cout << lancelot.getLocation() << endl;
     }
-
-
+    /*
     vector<Square> temp = lancelot.moveWarns();
     chessboard.displayResults(temp);
-
-    /*
+    */
     lancelot.setLocation(*chessboard.get(0, 1));
     vector<Square> temp2;
     lancelot.moveBackT(temp2);
     chessboard.displayResults(temp2);
-    */
+    
 
     return 0;
 };

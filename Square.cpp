@@ -7,7 +7,7 @@ Square::Square(){
 Square::Square(const Square &s) {
     col = s.col;
     row = s.row;
-    remaining = s.remaining;
+    tried = s.tried;
     used = s.used;
 }
         
@@ -19,8 +19,8 @@ void Square::setRow(int y) {
     row = y;
 }
         
-void Square::setRemaining(int z){
-    remaining = z;
+void Square::setTried(bool z){
+    tried = z;
 }
 
 void Square::setUsed(bool xyz) {
@@ -36,8 +36,8 @@ int Square::getRow() {
     return row;
 }
 
-int Square::getRemaining() {
-    return remaining;
+bool Square::getTried() {
+    return tried;
 }
 
 bool Square::getUsed() {
@@ -52,7 +52,7 @@ ostream& operator<<(ostream& os, const Square& s) {
 void Square::operator=(const Square &s) {
     col = s.col;
     row = s.row;
-    remaining = s.remaining;
+    tried = s.tried;
     used = s.used;
 }
 
