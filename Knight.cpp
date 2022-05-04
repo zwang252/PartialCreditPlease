@@ -1,12 +1,12 @@
 #include "Knight.h"
 
 vector<Square> Knight::moveBackT(vector<Square> sequence) {
-    /*cout << "current location is " << loc << endl;
+    cout << "Current location is " << loc << endl;
     cout << "Printing sequence at loop " <<  sequence.size() + 1 << ": ";
     for (int i = 0; i < sequence.size(); i++) {
         cout << sequence.at(i) << " ";
     }
-    cout << endl;*/
+    cout << endl;
     board.get(loc.getCol(), loc.getRow())->setUsed(true);
     sequence.push_back(loc);
     if (sequence.size() == 64) {
@@ -14,12 +14,12 @@ vector<Square> Knight::moveBackT(vector<Square> sequence) {
     }
     else {
         vector<Square> moveList = this->possibleMoves(loc);
-        /*cout << moveList.size() << endl;
+        cout << moveList.size() << endl;
         for (int i = 0; i < moveList.size(); i++) {
             cout << moveList.at(i) << " ";
         }
         cout << endl;
-        */
+        
         //if all used
         if (moveList.size() == 0) {
             board.get(loc.getCol(), loc.getRow())->setTried(true);
