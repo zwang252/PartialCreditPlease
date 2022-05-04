@@ -43,6 +43,7 @@ vector<Square> Knight::moveBackT(vector<Square> sequence) {
             }
         }
     }
+    return sequence;
 }
 
 vector<Square> Knight::moveWarns() {
@@ -50,7 +51,7 @@ vector<Square> Knight::moveWarns() {
     vector<Square> sequence;
     for (int i = 0; i < moveCount; i++) {
         board.get(loc.getCol(), loc.getRow())->setUsed(true);
-        cout << (i + 1) << ": " << loc << endl;
+        //cout << (i + 1) << ": " << loc << endl;
         sequence.push_back(loc);
         this->setLocation(*board.get(this->nextMove(this->possibleMoves(loc)).getCol(),
                                     this->nextMove(this->possibleMoves(loc)).getRow()));
