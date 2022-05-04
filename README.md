@@ -18,6 +18,11 @@
 <h3 align="left">Project proudly written in:</h3>
 <p align="left"> <a href="https://www.w3schools.com/cpp/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/cplusplus/cplusplus-original.svg" alt="cplusplus" width="40" height="40"/> </a> </p>
 
-<h1 align="left">Program Usage Instructions</h1>
+<h3 align="left">Program Usage Instructions</h3>
+* Perform <b>git clone</b>
+* Open a terminal window and navigate to the cloned directory
+* Enter <b>make</b> into your terminal to run the Makefile
+* Type <b>./pcpkt <input.txt> <output.txt></b>, where input and output are names of test files
+* Your output will be provided in output.txt
 
 
