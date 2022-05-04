@@ -22,7 +22,7 @@
 1. Perform <b>git clone</b>
 2. Open a terminal window and navigate to the cloned directory
 3. Enter <b>make</b> into your terminal to run the Makefile
-4. Type <b>./pcpkt <input.txt> <output.txt></b>, where input and output are names of test files
+4. Type <b>./pcpkt "input.txt" "output.txt"</b>, where input and output are names of test files
 5. Your output will be provided in output.txt
 
 
