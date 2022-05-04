@@ -19,10 +19,28 @@
 <p align="left"> <a href="https://www.w3schools.com/cpp/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/cplusplus/cplusplus-original.svg" alt="cplusplus" width="40" height="40"/> </a> </p>
 
 <h3 align="left">Program Usage Instructions</h3>
-1. Perform <b>git clone</b>
-2. Open a terminal window and navigate to the cloned directory
-3. Enter <b>make</b> into your terminal to run the Makefile
-4. Type <b>./pcpkt "input.txt" "output.txt"</b>, where input and output are names of test files
-5. Your output will be provided in output.txt
 
+- Perform <b>git clone</b>
+- Open a terminal window and navigate to the cloned directory
+- Enter <b>make</b> into your terminal to run the Makefile
+- Type <b>./pcpkt 'input.txt' 'output.txt'</b>, where input and output are names of test files
+	- Note: Choosing Warnsdorff or Backtracking will depend on the input file format
+- Your output will be provided in output.txt
 
+<h3 align="left">Program Input File</h3>
+
+- This program uses an istream to parse the input file
+- The input file should be a .txt formatted as follows
+	- Coordinate [SPACE] Method
+	- Example: To find a knight's tour from location C1 using backtracking
+       - <b>C1 0</b> should be Line 1 in your txt file
+	- Another example: To find a knight's tour from location C1 using Warnsdorff's
+    	- <b>C1 1</b> should be Line 1 in your txt file
+
+<h3 align="left">Program Output File</h3>
+
+- This program outputs to both the terminal (stdout) and a .txt file.
+- The output file will be formatted as follows after each run
+	- NOTE: Spot number 1 will always equal your input square, the rest may vary. Let's start from A1 for this example
+
+<p align = "center"> INSERT EXAMPLE HERE </p>
