@@ -1,11 +1,12 @@
 #include "Knight.h"
 
 vector<Square> Knight::moveBackT(vector<Square> sequence) {
-    cout << "Printing sequence: ";
+    /*cout << "current location is " << loc << endl;
+    cout << "Printing sequence at loop " <<  sequence.size() + 1 << ": ";
     for (int i = 0; i < sequence.size(); i++) {
         cout << sequence.at(i) << " ";
     }
-    cout << endl;
+    cout << endl;*/
     board.get(loc.getCol(), loc.getRow())->setUsed(true);
     sequence.push_back(loc);
     if (sequence.size() == 64) {
@@ -13,33 +14,48 @@ vector<Square> Knight::moveBackT(vector<Square> sequence) {
     }
     else {
         vector<Square> moveList = this->possibleMoves(loc);
+        /*cout << moveList.size() << endl;
+        for (int i = 0; i < moveList.size(); i++) {
+            cout << moveList.at(i) << " ";
+        }
+        cout << endl;
+        */
+        //if all used
         if (moveList.size() == 0) {
             board.get(loc.getCol(), loc.getRow())->setTried(true);
             board.get(loc.getCol(), loc.getRow())->setUsed(false);
             sequence.pop_back();
             this->setLocation(sequence.at(sequence.size() - 1));
+            sequence.pop_back();
             return this->moveBackT(sequence);
         }
-        for (int i = 0; i < moveList.size(); i++) {
-            if (!(moveList.at(i).getTried())) {
-                break;
-            }
-            if (i = moveList.size() - 1) {
-                for (int f = 0; f < moveList.size(); f++) {
-                    board.get(moveList.at(f).getCol(), moveList.at(f).getRow())->setTried(false);
-                    board.get(loc.getCol(), loc.getRow())->setTried(true);
-                    sequence.pop_back();
-                    this->setLocation(sequence.at(sequence.size() - 1));
-                    return this->moveBackT(sequence);
+        else {
+            for (int i = 0; i < moveList.size(); i++) {
+                if (!(moveList.at(i).getTried())) {
+                    break;
+                }
+                //if all tried
+                if (i == moveList.size() - 1) {
+                    for (int f = 0; f < moveList.size(); f++) {
+                        board.get(moveList.at(f).getCol(), moveList.at(f).getRow())->setTried(false);
+                    }
+                    for (int f = 0; f < moveList.size(); f++) {
+                        board.get(loc.getCol(), loc.getRow())->setTried(true);
+                        board.get(loc.getCol(), loc.getRow())->setUsed(false);
+                        sequence.pop_back();
+                        this->setLocation(sequence.at(sequence.size() - 1));
+                        sequence.pop_back();
+                        return this->moveBackT(sequence);
+                    }
                 }
             }
-        }
 
-        for (int i = 0; i < moveList.size(); i++) {
-            if (!(moveList.at(i).getTried())) {
-                this->setLocation(*board.get(moveList.at(i).getCol(),
-                                            moveList.at(i).getRow()));
-                return this->moveBackT(sequence);
+            for (int i = 0; i < moveList.size(); i++) {
+                if (!(moveList.at(i).getTried())) {
+                    this->setLocation(*board.get(moveList.at(i).getCol(),
+                                                moveList.at(i).getRow()));
+                    return this->moveBackT(sequence);
+                }
             }
         }
     }
