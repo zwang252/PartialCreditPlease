@@ -6,6 +6,7 @@
 class Knight{
     public:
         vector<Square> moveBackT(vector<Square> &);
+        bool moveBackTH(vector<Square> &);
         vector<Square> moveWarns();
         Square nextMove(vector<Square>);
         vector<Square> possibleMoves(Square);

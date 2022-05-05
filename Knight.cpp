@@ -1,7 +1,7 @@
 #include "Knight.h"
 
 vector<Square> Knight::moveBackT(vector<Square> &sequence) {
-    cout << "Current location is " << loc << endl;
+    /*cout << "Current location is " << loc << endl;
     cout << "Printing sequence at loop " << sequence.size() + 1 << ": ";
     for (int i = 0; i < sequence.size(); i++) {
         cout << sequence.at(i) << " ";
@@ -9,12 +9,11 @@ vector<Square> Knight::moveBackT(vector<Square> &sequence) {
     cout << endl;
 
     //Code start
-    board.get(loc.getCol(), loc.getRow())->setUsed(true);
-    sequence.push_back(loc);
     if (sequence.size() == 64) {
         return sequence;
     }
-    else {
+
+    //else {
         vector<Square> moveList = this->possibleMoves(loc);
         
         cout << moveList.size() << endl;
@@ -25,14 +24,15 @@ vector<Square> Knight::moveBackT(vector<Square> &sequence) {
         
         //if all used
         if (moveList.size() == 0) {
-            board.get(loc.getCol(), loc.getRow())->setTried(true);
+            //board.get(loc.getCol(), loc.getRow())->setTried(true);
             board.get(loc.getCol(), loc.getRow())->setUsed(false);
             sequence.pop_back();
             this->setLocation(sequence.at(sequence.size() - 1));
             sequence.pop_back();
             return this->moveBackT(sequence);
         }
-        else {
+        
+        //else {
             for (int i = 0; i < moveList.size(); i++) {
                 if (!(moveList.at(i).getTried())) {
                     break;
@@ -54,15 +54,60 @@ vector<Square> Knight::moveBackT(vector<Square> &sequence) {
             }
 
             for (int i = 0; i < moveList.size(); i++) {
-                if (!(moveList.at(i).getTried())) {
+                //if (!(moveList.at(i).getTried())) {
+                    board.get(loc.getCol(), loc.getRow())->setUsed(true);
+                    sequence.push_back(loc);
                     this->setLocation(*board.get(moveList.at(i).getCol(),
                                                 moveList.at(i).getRow()));
                     return this->moveBackT(sequence);
-                }
+                //}
             }
+        //}
+    //}
+    sequence.pop_back();
+    this->setLocation(*board.get(sequence.at(sequence.size() - 1).getCol(), sequence.at(sequence.size() - 1).getRow()));
+    return this->moveBackT(sequence);
+    */
+    sequence.push_back(loc);
+    if (this->moveBackTH(sequence)) {
+        return sequence;
+    }
+    else {
+        cout << "Solution doesn't exist" << endl;
+    }
+}
+
+bool Knight::moveBackTH(vector<Square> &sequence) {
+    cout << "Current location is " << loc << endl;
+    cout << "Printing sequence at loop " << sequence.size() + 1 << ": ";
+    for (int i = 0; i < sequence.size(); i++) {
+        cout << sequence.at(i) << " ";
+    }
+    cout << endl;
+    if (sequence.size() == 64) {
+        return true;
+    }
+    vector<Square> moveList = this->possibleMoves(loc);
+    cout << moveList.size() << endl;
+    for (int i = 0; i < moveList.size(); i++) {
+        cout << moveList.at(i) << " ";
+    }
+    cout << endl;
+    for (int i = 0; i < moveList.size(); i++) {
+        this->setLocation(*board.get(moveList.at(i).getCol(),
+                                    moveList.at(i).getRow()));
+        board.get(loc.getCol(), loc.getRow())->setUsed(true);
+        sequence.push_back(loc);
+        if (this->moveBackTH(sequence) == true) {
+            return true;
+        }
+        else {
+            board.get(loc.getCol(), loc.getRow())->setUsed(false);
+            sequence.pop_back();
+            this->setLocation(*board.get(sequence.at(sequence.size() - 1).getCol(), sequence.at(sequence.size() - 1).getRow()));
         }
     }
-    return sequence;
+    return 0;
 }
 
 vector<Square> Knight::moveWarns() {
