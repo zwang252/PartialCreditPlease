@@ -5,7 +5,7 @@
 
 class Knight{
     public:
-        vector<Square> moveBackT(vector<Square>);
+        vector<Square> moveBackT(vector<Square> &);
         vector<Square> moveWarns();
         Square nextMove(vector<Square>);
         vector<Square> possibleMoves(Square);

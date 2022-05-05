@@ -4,16 +4,16 @@ PartialCreditPlease:	main.o Square.o Knight.o Chessboard.o
 	g++ main.o Square.o Knight.o Chessboard.o -o pcpkt
 
 main.o:	main.cpp Square.h Knight.h Chessboard.h
-	g++ -g -Wall -c main.cpp
+	g++ -g -c main.cpp
 
 Square.o:	Square.cpp Square.h
-	g++ -g -Wall -c Square.cpp
+	g++ -g -c Square.cpp
 
 Knight.o:	Knight.cpp Knight.h
-	g++ -g -Wall -c Knight.cpp
+	g++ -g -c Knight.cpp
 
 Chessboard.o:	Chessboard.cpp Chessboard.h
-	g++ -g -Wall -c Chessboard.cpp
+	g++ -g -c Chessboard.cpp
 
 clean:
 	rm *.o pcpkt

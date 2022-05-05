@@ -39,8 +39,9 @@ int main(int argc, char *argv[]) {
     */
 
     lancelot.setLocation(*chessboard.get(0, 1));
-    vector<Square> temp2 = lancelot.moveBackT(temp2);
-    chessboard.displayResults(temp2);
+    vector<Square> temp2;
+    vector<Square> temp3 = lancelot.moveBackT(temp2);
+    chessboard.displayResults(temp3);
 
 
     return 0;
