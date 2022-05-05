@@ -3,10 +3,12 @@
 vector<Square> Knight::moveBackT(vector<Square> sequence) {
     cout << "Current location is " << loc << endl;
     cout << "Printing sequence at loop " <<  sequence.size() + 1 << ": ";
-    for (int i = 0; i < sequence.size(); i++) {
+    for (size_t i = 0; i < sequence.size(); i++) {
         cout << sequence.at(i) << " ";
     }
     cout << endl;
+
+    //Code start
     board.get(loc.getCol(), loc.getRow())->setUsed(true);
     sequence.push_back(loc);
     if (sequence.size() == 64) {
@@ -14,8 +16,9 @@ vector<Square> Knight::moveBackT(vector<Square> sequence) {
     }
     else {
         vector<Square> moveList = this->possibleMoves(loc);
+        
         cout << moveList.size() << endl;
-        for (int i = 0; i < moveList.size(); i++) {
+        for (size_t i = 0; i < moveList.size(); i++) {
             cout << moveList.at(i) << " ";
         }
         cout << endl;
@@ -30,16 +33,16 @@ vector<Square> Knight::moveBackT(vector<Square> sequence) {
             return this->moveBackT(sequence);
         }
         else {
-            for (int i = 0; i < moveList.size(); i++) {
+            for (size_t i = 0; i < moveList.size(); i++) {
                 if (!(moveList.at(i).getTried())) {
                     break;
                 }
                 //if all tried
-                if (i == moveList.size() - 1) {
-                    for (int f = 0; f < moveList.size(); f++) {
+                if (i == moveList.size()) {
+                    for (size_t f = 0; f < moveList.size(); f++) {
                         board.get(moveList.at(f).getCol(), moveList.at(f).getRow())->setTried(false);
                     }
-                    for (int f = 0; f < moveList.size(); f++) {
+                    for (size_t f = 0; f < moveList.size(); f++) {
                         board.get(loc.getCol(), loc.getRow())->setTried(true);
                         board.get(loc.getCol(), loc.getRow())->setUsed(false);
                         sequence.pop_back();
@@ -50,7 +53,7 @@ vector<Square> Knight::moveBackT(vector<Square> sequence) {
                 }
             }
 
-            for (int i = 0; i < moveList.size(); i++) {
+            for (size_t i = 0; i < moveList.size(); i++) {
                 if (!(moveList.at(i).getTried())) {
                     this->setLocation(*board.get(moveList.at(i).getCol(),
                                                 moveList.at(i).getRow()));
