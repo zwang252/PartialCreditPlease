@@ -23,24 +23,8 @@
 - Perform <b>git clone</b>
 - Open a terminal window and navigate to the cloned directory
 - Enter <b>make</b> into your terminal to run the Makefile
-- Type <b>./pcpkt 'input.txt' 'output.txt'</b>, where input and output are names of test files
-	- Note: Choosing Warnsdorff or Backtracking will depend on the input file format
-- Your output will be provided in output.txt
+- Type <b>./pcpkt 'starting square' 'algorithm choice'</b>, where starting square can be square on a standard 8x8 chessboard and algorithm choice is either Backtracking (1) or Warnsdorff (2)
+	- Example: To find a knight's tour from location A2 using Warnsdorff's
+		- <b> ./pcpkt A2 2
+- Your output will be printed to the terminal
 
-<h3 align="left">Program Input File</h3>
-
-- This program uses an istream to parse the input file
-- The input file should be a .txt formatted as follows
-	- Coordinate [SPACE] Method
-	- Example: To find a knight's tour from location C1 using backtracking
-       - <b>C1 1</b> should be Line 1 in your txt file
-	- Another example: To find a knight's tour from location C1 using Warnsdorff's
-    	- <b>C1 2</b> should be Line 1 in your txt file
-
-<h3 align="left">Program Output File</h3>
-
-- This program outputs to both the terminal (stdout) and a .txt file.
-- The output file will be formatted as follows after each run
-	- NOTE: Spot number 1 will always equal your input square, the rest may vary. Let's start from A1 for this example
-
-<p align = "center"> INSERT EXAMPLE HERE </p>
