@@ -33,9 +33,9 @@
 - The input file should be a .txt formatted as follows
 	- Coordinate [SPACE] Method
 	- Example: To find a knight's tour from location C1 using backtracking
-       - <b>C1 0</b> should be Line 1 in your txt file
+       - <b>C1 1</b> should be Line 1 in your txt file
 	- Another example: To find a knight's tour from location C1 using Warnsdorff's
-    	- <b>C1 1</b> should be Line 1 in your txt file
+    	- <b>C1 2</b> should be Line 1 in your txt file
 
 <h3 align="left">Program Output File</h3>
 
